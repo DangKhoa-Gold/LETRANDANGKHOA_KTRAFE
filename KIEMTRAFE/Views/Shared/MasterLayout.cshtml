@@ -1,0 +1,373 @@
+﻿<style type="text/css">
+    html {
+        font-size: 14px;
+        font-family: 'Franklin Gothic', 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif
+    }
+
+    body {
+        background-color: whitesmoke;
+    }
+
+    #container {
+        border: 2px solid white;
+        border-radius: 10px;
+    }
+    header {
+        background-color: white;
+        border: 2px solid white;
+        padding: 10px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .logo img {
+        height: 100px;
+    }
+
+    .search {
+        font-family: Inter, Helvetica, Arial, sans-serif;
+        font-size: 14px;
+        line-height: 1.15;
+        text-size-adjust: 100%;
+        box-sizing: border-box;
+        width: 60%;
+        display: flex;
+        position: relative;
+        border: 1px solid rgb(221, 221, 227);
+        border-radius: 8px;
+        -webkit-box-align: center;
+        align-items: center;
+        letter-spacing: normal;
+    }
+
+    .search-box {
+        flex-grow: 0.8;
+        display: flex;
+        justify-content: center;
+    }
+
+    .search input {
+        width: 100%;
+        border: none;
+        padding: 10px;
+    }
+
+    .search button {
+        background-color: transparent;
+        border: none;
+        padding: 10px;
+    }
+
+    nav ul {
+        list-style-type: none;
+        display: flex;
+    }
+
+        nav ul li {
+            margin-left: 20px;
+            font-size: 1.2rem;
+        }
+
+            nav ul li a {
+                text-decoration: none;
+                color: #000000;
+                font-weight: bold;
+            }
+
+    section {
+        background-color: whitesmoke;
+        min-height = 300px;
+    }
+
+    .freeship-info {
+        margin-top: 15px;
+        font-size: 16px;
+        color: deepskyblue;
+        max-width: 1200px;
+        margin: 0;
+        padding: 10px 20px;
+    }
+
+    
+
+    .address-bar {
+        margin-top: 15px;
+        font-size: 14px;
+        color: #555;
+        max-width: 1200px;
+        margin: 0;
+        padding: 10px 20px;
+    }
+
+        .address-bar a {
+            color: #007bff;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+    .cart-container {
+        display: flex;
+        justify-content: space-between;
+        max-width: 1200px;
+        margin: 20px auto;
+        padding: 0 20px;
+    }
+
+    .cart-items {
+        width: 70%;
+        background-color: white;
+        padding: 20px;
+        border-radius: 4px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .cart-summary {
+        width: 25%;
+        background-color: white;
+        padding: 20px;
+        border-radius: 4px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .progress-bar {
+        width: 100%;
+        height: 5px;
+        background-color: #ddd;
+        position: relative;
+        margin-bottom: 20px;
+    }
+
+    .progress {
+        height: 5px;
+        background-color: #28a745;
+    }
+
+    .freeship {
+        position: absolute;
+        right: 0;
+        top: -15px;
+        font-size: 12px;
+        color: #28a745;
+    }
+
+    .cart-item {
+        margin-bottom: 20px;
+    }
+
+    .cart-header {
+        font-weight: bold;
+        border-bottom: 1px solid #ddd;
+        padding-bottom: 10px;
+        margin-bottom: 20px;
+    }
+
+    .cart-item-details {
+        margin-bottom: 20px;
+    }
+
+    .product {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 15px 0;
+        border-bottom: 1px solid #ddd;
+    }
+
+        .product img {
+            width: 100px;
+            margin-right: 20px;
+        }
+
+    .product-details {
+        width: 40%;
+    }
+
+        .product-details p {
+            margin-top: 20px;
+        }
+
+    .price, .total-price {
+        width: 15%;
+        text-align: center;
+        font-weight: bold;
+    }
+
+    .quantity {
+        display: flex;
+        align-items: center;
+    }
+
+        .quantity button {
+            width: 30px;
+            height: 30px;
+            border: 1px solid #ccc;
+            background-color: #f8f9fa;
+            cursor: pointer;
+            font-size: 16px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 0;
+        }
+
+            .quantity button:hover {
+                background-color: #e0e0e0;
+            }
+
+        .quantity input {
+            width: 30px;
+            text-align: center;
+            border: 1px solid #ccc;
+            height: 30px;
+            margin: 0 5px;
+            font-size: 16px;
+            border-radius: 2px;
+            text-align: center;
+        }
+
+    .discount {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 20px;
+    }
+
+        .discount input {
+            width: 70%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+</style>
+<!DOCTYPE html>
+
+<html lang="vi">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>Giỏ Hàng</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+</head>
+<body>
+    <div id="container">
+        <header>
+            <div class="logo">
+
+                <img src="~/Content/Screenshot 2024-10-01 132022.png" />
+            </div>
+            <div class="search-box">
+
+                <div class="search">
+                    <img class="icon-search" src="https://salt.tikicdn.com/ts/upload/33/d0/37/6fef2e788f00a16dc7d5a1dfc5d0e97a.png" alt="icon-search">
+                    <i class="fas fa-search"></i>
+                    <input type="text" placeholder="Giao nhanh 2H & dùng khung giờ" id="searchInput">
+                    <button onclick="searchFunction()"><i class="fas fa-search"></i></button>
+                </div>
+                <nav>
+                    <ul>
+                        <li><a href="~/Home/TrangChu"><i class="fas fa-home"></i>Trang chủ</a></li>
+                        <li><a href="#"><i class="fas fa-star"></i>Astra</a></li>
+                        <li><a href="#"><i class="fas fa-user"></i>Tài khoản</a></li>
+                        <li class="cart-icon">
+                            <i class="fas fa-shopping-cart"></i>
+                            <span class="cart-badge">2</span>
+                        </li>
+                    </ul>
+                </nav>
+
+            </div>
+            <div class="address-bar">
+                Giao đến: <a href="#">Q.12, P. Hiệp Thành, Hồ Chí Minh</a>
+            </div>
+            <div data-view-id="header_quicklinks_container" class="lựa chọn nhanh">
+            <a data-view-id="header_quicklinks_item" data-view-index="0" href="/dien-gia-dung/c1882?from=header_keyword">điện gia dụng</a>
+            <a data-view-id="header_quicklinks_item" data-view-index="1" href="/o-to-xe-may-xe-dap/c8594?from=header_keyword">xe cộ</a>
+            <a data-view-id="header_quicklinks_item" data-view-index="2" href="/do-choi-me-be/c2549?from=header_keyword">mẹ &amp; bé</a>
+            <a data-view-id="header_quicklinks_item" data-view-index="3" href="/lam-dep-suc-khoe/c1520?from=header_keyword">khỏe đẹp</a>
+            <a data-view-id="header_quicklinks_item" data-view-index="4" href="/nha-cua-doi-song/c1883?from=header_keyword">nhà cửa</a>
+            <a data-view-id="header_quicklinks_item" data-view-index="5" href="/nha-sach-tiki/c8322?from=header_keyword">sách</a>
+            <a data-view-id="header_quicklinks_item" data-view-index="6" href="/the-thao-da-ngoai/c1975?from=header_keyword">thể thao</a></div>
+
+            <div>
+                @RenderBody()
+            </div>
+        </header>
+        <main class="cart-container">
+            <section class="cart-items">
+                <h2>Giỏ Hàng</h2>
+
+                <div class="progress-bar">
+                    <div class="progress" style="width: 50%;"></div>
+                    <div class="freeship">Freeship 30K</div>
+                </div>
+                <div class="cart-item">
+                    <div class="cart-header">
+                        <input type="checkbox"> Tất cả (2 sản phẩm)
+                    </div>
+                    <div class="cart-item-details">
+                        <h3>GIA DỤNG VIỆT</h3>
+                        <div class="product">
+                            <input type="checkbox">
+                           
+                            <img src="~/Content/Screenshot 2024-10-01 150648.png" />
+                            <div class="product-details">
+                                <h4>Điện thoại Samsung Galaxy A54 5G (8GB/128GB)</h4>
+                                <p>Hàng chính hãng - Tím</p>
+                            </div>
+                            <div class="price">8.480.000đ</div>
+                            <div class="quantity">
+                                <button class="btn-decrease">-</button>
+                                <input value="1" min="1" class="quantity-input">
+                                <button class="btn-increase">+</button>
+                            </div>
+                            <div class="total-price">8.480.000đ</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="cart-item-details">
+                    <h3>Shop Khuyến Mãi</h3>
+                    <div class="product">
+                        <input type="checkbox">
+                        <img src="~/Content/Screenshot 2024-10-01 150648.png" />
+                        <div class="product-details">
+                            <h4>Điện thoại Samsung Galaxy A54 5G (8GB/256GB)</h4>
+                            <p>Hàng chính hãng - Tím</p>
+                        </div>
+                        <div class="price">8.990.000đ</div>
+                        <div class="quantity">
+                            <button class="btn-decrease">-</button>
+                            <input value="1" min="1" class="quantity-input">
+                            <button class="btn-increase">+</button>
+                        </div>
+                        <div class="total-price">8.990.000đ</div>
+                    </div>
+                </div>
+            </section>
+            <!-- Phần tổng quan đơn hàng -->
+            <aside class="cart-summary">
+                <h3>Tiki Khuyến Mãi</h3>
+                <div class="discount">
+                    <input type="text" placeholder="Nhập mã giảm giá">
+                    <button>Áp dụng</button>
+                </div>
+
+                <div class="summary">
+                    <div class="row">
+                        <span>Tạm tính:</span>
+                        <span>8.480.000đ</span>
+                    </div>
+                    <div class="row">
+                        <span>Tổng tiền:</span>
+                        <span>8.480.000đ</span>
+                    </div>
+                    <p class="freeship-info">FREESHIP đã được áp dụng!</p>
+
+                    <button class="checkout-btn">Mua Hàng (1)</button>
+                </div>
+            </aside>
+        </main>
+    </div>
+
+</body>
+</html>
